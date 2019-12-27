@@ -1,0 +1,36 @@
+
+version: "3"
+services:
+  app:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_HOST: 'postgres'
+      NODE_ENV: development
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    command: npm run start
+    volumes:
+      - .:/app/
+      - /app/node_modules
+
+  postgres:
+    image: postgres:10.4
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: express-mvp-db
+    volumes: 
+      - ./datadir:/var/lib/postgresql/express-mvp-db
+
+# Helpful Commands
+
+## Run App
+# docker-compose up 
+
+## force terminate app
+# docker rm myapp_postgres_1 --force && docker rm myapp_app_1 --force
