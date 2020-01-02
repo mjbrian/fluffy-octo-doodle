@@ -1,8 +1,7 @@
 'use strict';
-const LeadsTable = {
-    name: 'Leads',
-    GetModel: (sequelize) => {
-        return {
+module.exports = {
+    up: (queryInterface, Sequelize) => {
+        return queryInterface.createTable('Leads', {
             id: {
                 allowNull: false,
                 primaryKey: true,
@@ -21,15 +20,9 @@ const LeadsTable = {
                 allowNull: false,
                 type: sequelize.STRING
             },
-        }
-    }
-}
-
-module.exports = {
-    up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable(LeadsTable.name, LeadsTable.GetModel(Sequelize));
+        });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable(LeadsTable.name);
+        return queryInterface.dropTable('Leads');
     }
 }

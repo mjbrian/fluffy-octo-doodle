@@ -4,8 +4,9 @@ WORKDIR /app
 
 COPY ./package.json .
 
-RUN npm install
-
+RUN npm install sequelize-cli -g \
+    npm install
+    
 COPY . .
 
 EXPOSE 3000

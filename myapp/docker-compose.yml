@@ -28,9 +28,11 @@ services:
       - ./datadir:/var/lib/postgresql/express-mvp-db
 
 # Helpful Commands
+## Build App
+# docker-compose build
 
 ## Run App
 # docker-compose up 
 
 ## force terminate app
-# docker rm myapp_postgres_1 --force && docker rm myapp_app_1 --force
+# docker stop myapp_postgres_1 && docker stop myapp_app_1

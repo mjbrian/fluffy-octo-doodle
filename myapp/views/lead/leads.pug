@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
   include ../common/head.pug
-  +head("Starter MVP")
+  +head("Leads")
   body
     header
       include ../common/navbar.pug
@@ -25,7 +25,7 @@ html(lang='en')
                     td
                       a(href=`/lead/${lead.id}`) Details
                     td
-                      button(onClick=`deleteLead('${lead.id}')`) Delete
+                      button(onClick=`deleteLead('${lead.id}')`).btn.btn-primary Delete
     include ../common/footer.pug
     +footer()
-    script(src="/javascripts/lead.js")
+    script(src="/javascript/lead.js")
