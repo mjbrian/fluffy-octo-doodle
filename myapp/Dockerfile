@@ -5,7 +5,7 @@ WORKDIR /app
 COPY ./package.json .
 
 RUN npm install sequelize-cli -g \
-    npm install
+    && npm install
     
 COPY . .
 

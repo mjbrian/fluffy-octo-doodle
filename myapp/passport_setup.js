@@ -7,11 +7,11 @@ const validPassword = function(user, password) {
 }
 
 module.exports = function(passport) {
-    passport.serialiseUser((user, done) => {
+    passport.serializeUser((user, done) => {
         done(null, user.id);
     });
-    passport.deserialiseUser((id, done) => {
-        modles.User.findOne({
+    passport.deserializeUser((id, done) => {
+        models.User.findOne({
             where: {'id': id}
         }).then(user => {
             if(user == null) done(new Error('Wrong User Id'));
