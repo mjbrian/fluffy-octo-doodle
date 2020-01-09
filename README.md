@@ -4,14 +4,14 @@ Basic web app using Node.js, Express.js, PostgreSQL, and Bootstrap. A landing pa
 
 ## contributing
 
-### for the first time run & setup
+### First time run & setup
 
 1. Install [docker](https://docs.docker.com/install/)
 1. install [docker-compose](https://docs.docker.com/compose/install/)
 1. Start the containers [See Basic Usage](###-Basic-usage)
 1. Run Migrations [See running migrations](###-running-migrations)
 
-### running migrations
+### Running migrations
 
 For DB-releated changes, filenames should be in the format of `YYYMMDDHHMM-VerbNounTable.js`
 
@@ -39,6 +39,17 @@ Using environment "development".
 No migrations were executed, database schema was already up to date.
 ```
 
-### basic usage
+### Basic usage
 
 $ docker-compose build && docker-compose up
+
+## Known Errors
+
+Error: 
+```shell
+$ docker-compose up
+Pulling postgres (postgres:10.4)...
+10.4: Pulling from library/postgres
+ERROR: no matching manifest for windows/amd64 10.0.18362 in the manifest list entries
+```
+Solution: (Windows Only) [Switch to linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
